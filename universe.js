@@ -3,7 +3,7 @@ const originalHeader=document.querySelector('.topbar'), originalMain=document.qu
 let btsData={concerts:[]}; const STORAGE_KEY='arirang-quest-archive-v1';
 function loadBts(){try{const value=JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}');btsData.concerts=Array.isArray(value.concerts)?value.concerts:[]}catch{btsData={concerts:[]}}}
 function saveBts(){localStorage.setItem(STORAGE_KEY,JSON.stringify(btsData))}
-function esc(value){return String(value).replace(/[&<>\"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',\"'\":'&#39;'}[c]))}
+function esc(value){return String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 function backToGate(){const view=document.getElementById('bts-quest');if(view)view.remove();originalHeader.hidden=false;originalMain.hidden=false;originalFooter.hidden=false;document.body.classList.remove('quest-mode');gate.hidden=false}
 function chooseUniverse(universe){if(universe==='mcr'){gate.hidden=true;return}gate.hidden=true;document.body.classList.add('quest-mode');originalHeader.hidden=true;originalMain.hidden=true;originalFooter.hidden=true;let view=document.getElementById('bts-quest');if(!view){view=document.createElement('section');view.id='bts-quest';view.className='bts-quest';document.body.insertBefore(view,document.querySelector('.toast'))}loadBts();renderBts()}
 function renderBts(){const view=document.getElementById('bts-quest');if(!view)return;const attended=btsData.concerts.filter(c=>c.attended),songs=[...new Set(attended.flatMap(c=>c.songs))],dates=btsData.concerts.map(c=>c.date).filter(Boolean).sort(),first=dates.length?new Date(dates[0]+'T12:00:00').getFullYear():'—';
