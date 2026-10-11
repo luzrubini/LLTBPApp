@@ -1,0 +1,128 @@
+:root {
+  --ink: #090909;
+  --paper: #dedede;
+  --muted: #929292;
+  --red: #ed1029;
+  --line: #555;
+  --gold: #a9a9a9;
+  --sans: "Courier New", monospace;
+  --display: "Courier New", monospace;
+  color-scheme: dark;
+}
+
+body { background: #090909; font-family: var(--sans); }
+body:before {
+  opacity: .15;
+  background: repeating-linear-gradient(0deg, transparent 0 15px, #282828 16px),
+              repeating-linear-gradient(90deg, transparent 0 15px, #282828 16px);
+}
+.grain { display: none; }
+.topbar { border-bottom: 2px solid #555; }
+.brand { font-family: var(--display); }
+.brand-mark {
+  transform: none;
+  border: 2px solid #eee;
+  box-shadow: 4px 4px 0 #65000d;
+  image-rendering: pixelated;
+}
+.button, .demo-button, .add-show-toggle, .show-card-main,
+.attendance-stamp, .import-setlist summary { font-family: var(--sans); }
+.button { border-radius: 0; box-shadow: 3px 3px 0 #555; }
+.button:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 #777; }
+.button:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 #555; }
+.button-red { background: var(--red); border: 2px solid #ff7785; }
+.button-google { background: #c9c9c9; border: 2px solid #fff; }
+.panel {
+  background: #111;
+  border: 2px solid #666;
+  border-radius: 0;
+  box-shadow: 5px 5px 0 #37000a;
+}
+.hero h1 { font-family: var(--display); letter-spacing: -4px; }
+.hero h1 em { color: var(--red); text-shadow: 4px 4px 0 #4a000a; }
+.hero-stamp {
+  width: 150px;
+  height: 125px;
+  border: 3px solid #888;
+  border-radius: 0;
+  color: #aaa;
+  transform: none;
+  box-shadow: 5px 5px 0 #39000a;
+}
+.hero-stamp:before, .hero-stamp:after { border: 1px solid #555; border-radius: 0; }
+.hero-stamp:after { inset: 5px; }
+.hero-stamp strong { color: #eee; }
+.live-dot { border-radius: 0; box-shadow: 2px 2px 0 #70000c; }
+.welcome-icon { border: 2px solid #999; color: var(--red); }
+.welcome-actions .button { text-transform: uppercase; }
+.archive-heading h2, .section-heading h3, .detail-list-head h4,
+.show-card-main strong, .detail-top h3, .detail-empty p { font-family: var(--display); }
+.step { border: 2px solid #666; color: var(--red); }
+.setlist-source, .new-show-form { background: #090909; border: 2px solid #555; }
+.setlist-source input, .setlist-source select, .new-show-form input,
+.import-setlist textarea, .memory-search {
+  background: #050505;
+  border: 2px solid #555;
+  border-radius: 0;
+  color: #eee;
+  font-family: var(--sans);
+}
+.setlist-source select:focus, .setlist-source input:focus,
+.new-show-form input:focus, .import-setlist textarea:focus,
+.memory-search:focus-within { outline: 2px solid var(--red); outline-offset: 1px; }
+.show-card {
+  border: 2px solid #555;
+  background: #101010;
+  border-radius: 0;
+  box-shadow: 3px 3px 0 #292929;
+}
+.show-card:before { width: 5px; }
+.show-card:hover, .show-card.selected { transform: translate(-1px, -1px); }
+.show-date { color: #c2c2c2; }
+.attendance-stamp {
+  width: 66px;
+  height: 54px;
+  border: 2px dashed var(--show-color);
+  border-radius: 0;
+  transform: none;
+  color: var(--show-color);
+  text-shadow: 2px 2px 0 #333;
+}
+.attendance-stamp:hover, .attendance-stamp.is-attending {
+  background: var(--show-color);
+  color: #080808;
+  border: 2px solid #eee;
+  box-shadow: 3px 3px 0 #555;
+  text-shadow: none;
+}
+.add-show-toggle { border: 2px dashed #666; color: #ccc; }
+.add-show-toggle:hover { border-color: var(--red); color: #fff; }
+.show-detail { border: 2px solid #666; }
+.detail-top { background: #141414; }
+.detail-seal {
+  width: 76px;
+  height: 64px;
+  border: 2px dashed var(--show-color);
+  border-radius: 0;
+  transform: none;
+}
+.detail-seal.active { border: 2px solid #fff; color: #080808; }
+.color-note i, .memory-stamps i { border-radius: 0; box-shadow: none; }
+.track-mark { text-shadow: 2px 2px 0 #444; }
+.night-setlist li { border-top: 1px dashed #444; }
+.import-setlist { border-top: 2px solid #555; }
+.import-setlist textarea { outline: none; }
+.memory-album h4 { color: #c2c2c2; border-bottom: 2px solid #555; }
+.memory-song { border-bottom: 1px dashed #444; }
+.memory-stamps i { border: 2px solid #ddd; }
+.memory-empty { border: 2px dashed #666; }
+.toast { background: #111; border: 2px solid var(--red); border-radius: 0; box-shadow: 4px 4px 0 #555; }
+footer { border-top: 2px solid #555; }
+
+@media (max-width: 560px) {
+  .hero-stamp { width: 88px; height: 78px; }
+  .hero-stamp:before { inset: 4px; }
+  .hero-stamp:after { inset: 2px; }
+  .attendance-stamp { width: 59px; height: 50px; }
+  .detail-seal { width: 63px; height: 56px; }
+}

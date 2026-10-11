@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#efedeb" />
+    <meta name="description" content="Tu archivo de noches con My Chemical Romance." />
+    <title>Our Lives in Black & Red — MCR show archive</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="retro.css" />
+    <link rel="stylesheet" href="cozy.css" />
+    <link rel="stylesheet" href="wrapped.css" />
+    <link rel="stylesheet" href="pixel-emo.css" />
+    <link rel="stylesheet" href="sakura-light.css" />
+  </head>
+  <body>
+    <div class="grain" aria-hidden="true"></div>
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Our Lives in Black and Red"><span class="brand-mark">MCR</span><span>OUR LIVES<br />IN BLACK & RED</span></a>
+      <div class="account"><span class="account-note">A PERSONAL SHOW ARCHIVE</span><button id="sign-in" class="button button-google" type="button"><span class="google-g">G</span> Entrar con Google</button><button id="sign-out" class="button button-quiet" type="button" hidden>CERRAR SESIÓN ↗</button></div>
+    </header>
+    <main>
+      <section class="hero">
+        <div class="hero-copy"><p class="eyebrow"><span class="live-dot"></span> THE NIGHTS THAT NEVER LEFT</p><h1>WHERE THE<br /><em>NIGHT HAPPENED.</em></h1><p class="hero-subtitle">Cada show, cada canción, cada recuerdo que quedó en vos.</p></div>
+        <div class="hero-stamp" aria-hidden="true"><span>THREE CHEERS<br />FOR ALL THE</span><strong>NIGHTS</strong><span>WE SURVIVED</span></div>
+        <div class="hero-rule"><span>MY CHEMICAL ROMANCE</span><span>MEMORIES MADE LOUD</span></div>
+      </section>
+      <section id="welcome" class="welcome panel">
+        <div class="welcome-icon">✳</div><div><h2>Tu archivo. Tus noches. Tu historia.</h2><p>Marcá los shows a los que fuiste y mirá qué canciones viviste en cada uno. Podés empezar sin cuenta; Google sirve para sincronizar tus recuerdos entre dispositivos.</p><p class="setup-hint" id="setup-hint" hidden>Falta conectar Firebase. Consultá <code>README.md</code> para activar la sincronización con Google.</p></div><div class="welcome-actions"><button id="welcome-sign-in" class="button button-red" type="button">ENTRAR CON GOOGLE <span>↗</span></button><button id="demo-mode" class="demo-button" type="button">USAR SIN CUENTA · GUARDAR EN ESTE NAVEGADOR ↗</button></div>
+      </section>
+      <section id="app" hidden>
+        <div class="archive-heading"><div><p class="eyebrow">YOUR MCR SHOW ARCHIVE <span class="slash">/</span> <span id="greeting">BIENVENIDA</span></p><h2>LAS NOCHES QUE VIVISTE.</h2><a class="wrapped-shortcut" href="#wrapped-board">ABRIR LLTBP WRAPPED ↘</a></div><div class="archive-stats"><div><b id="show-total">0</b><span>SHOWS</span></div><div><b id="song-total">0</b><span>CANCIONES VIVIDAS</span></div></div></div>
+        <div class="archive-layout">
+          <section class="panel show-library"><div class="section-heading"><div><span class="step">01</span><h3>EL ARCHIVO DE LA GIRA</h3></div><span class="tiny-label">BLACK PARADE · 2025—2026</span></div><p class="section-note">Elegí una gira Black Parade de 2025 o 2026 y marcá los shows a los que fuiste.</p><div class="setlist-source"><label for="tour-select">ELEGIR GIRA DE MY CHEMICAL ROMANCE</label><div><select id="tour-select" aria-label="Elegir gira" disabled><option value="">Iniciá sesión para cargar giras</option></select><button id="import-tour-button" class="button button-red" type="button" disabled>CARGAR TODOS LOS SHOWS ↗</button></div><small id="tour-import-status">Buscando solo giras Black Parade de 2025 y 2026 en setlist.fm.</small></div><div id="show-cards" class="show-cards"></div><button id="add-show-toggle" class="add-show-toggle" type="button">＋ AGREGAR OTRA FECHA</button><div id="new-show-form" class="new-show-form" hidden><label>FECHA<input id="new-show-date" type="date" /></label><label>CIUDAD / PAÍS<input id="new-show-place" placeholder="Buenos Aires, Argentina" maxlength="70" /></label><label>COLOR DEL SELLO<input id="new-show-color" type="color" value="#c83c4a" /></label><button id="add-show" class="button button-red" type="button">AGREGAR SHOW</button></div></section>
+          <section id="show-detail" class="panel show-detail"><div class="detail-empty"><span>✳</span><p>ELEGÍ UNA NOCHE<br />DE TU ARCHIVO</p><small>El setlist va a aparecer acá.</small></div></section>
+        </div>
+        <section class="panel memory-board"><div class="section-heading"><div><span class="step">03</span><h3>LAS CANCIONES QUE VIVISTE</h3></div><label class="memory-search"><span>⌕</span><input id="memory-search" type="search" placeholder="Buscar canción" /></label></div><p class="section-note">Cada sello lleva el color de la fecha en la que escuchaste esa canción en vivo.</p><div id="memory-songs" class="memory-songs"></div></section>
+        <section id="wrapped-board" class="wrapped-board" aria-labelledby="wrapped-title"><div id="wrapped-content"></div></section>
+      </section>
+    </main>
+    <footer><span>OUR LIVES IN BLACK & RED</span><span>MADE OF MEMORIES <b>✳</b></span></footer>
+    <div id="toast" class="toast" role="status"></div>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

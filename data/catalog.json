@@ -1,0 +1,748 @@
+{
+  "albums": [
+    "I Brought You My Bullets, You Brought Me Your Love",
+    "Three Cheers for Sweet Revenge",
+    "The Black Parade",
+    "Danger Days",
+    "Conventional Weapons",
+    "Singles & Covers"
+  ],
+  "dates": [
+    {
+      "date": "2025-08-29",
+      "country": "USA",
+      "soundcheck": false,
+      "color": "#d5a6bd"
+    },
+    {
+      "date": "2025-09-13",
+      "country": "USA",
+      "soundcheck": false,
+      "color": "#b4a7d6"
+    },
+    {
+      "date": "2026-01-28",
+      "country": "Chile",
+      "soundcheck": false,
+      "color": "#c9daf8"
+    },
+    {
+      "date": "2026-02-01",
+      "country": "Argentina",
+      "soundcheck": false,
+      "color": "#d0e0ca"
+    },
+    {
+      "date": "2026-07-08",
+      "country": "UK",
+      "soundcheck": false,
+      "color": "#f9ecc7"
+    }
+  ],
+  "songs": [
+    {
+      "id": "s1",
+      "title": "Romance",
+      "album": "I Brought You My Bullets, You Brought Me Your Love",
+      "date": null,
+      "country": null,
+      "color": null
+    },
+    {
+      "id": "s2",
+      "title": "Honey, This Mirror Isn’t Big Enough for the Two of Us",
+      "album": "I Brought You My Bullets, You Brought Me Your Love",
+      "date": "2026-07-08",
+      "country": "UK",
+      "color": "#f9ecc7"
+    },
+    {
+      "id": "s3",
+      "title": "Vampires Will Never Hurt You",
+      "album": "I Brought You My Bullets, You Brought Me Your Love",
+      "date": "2026-02-01",
+      "country": "Argentina",
+      "color": "#d0e0ca"
+    },
+    {
+      "id": "s4",
+      "title": "Drowning Lessons",
+      "album": "I Brought You My Bullets, You Brought Me Your Love",
+      "date": null,
+      "country": null,
+      "color": null
+    },
+    {
+      "id": "s5",
+      "title": "Our Lady of Sorrows",
+      "album": "I Brought You My Bullets, You Brought Me Your Love",
+      "date": "2026-02-01",
+      "country": "Argentina",
+      "color": "#d0e0ca"
+    },
+    {
+      "id": "s6",
+      "title": "Headfirst for Halos",
+      "album": "I Brought You My Bullets, You Brought Me Your Love",
+      "date": null,
+      "country": null,
+      "color": null
+    },
+    {
+      "id": "s7",
+      "title": "Skylines and Turnstiles",
+      "album": "I Brought You My Bullets, You Brought Me Your Love",
+      "date": null,
+      "country": null,
+      "color": null
+    },
+    {
+      "id": "s8",
+      "title": "Early Sunsets Over Monroeville",
+      "album": "I Brought You My Bullets, You Brought Me Your Love",
+      "date": null,
+      "country": null,
+      "color": null
+    },
+    {
+      "id": "s9",
+      "title": "This Is the Best Day Ever",
+      "album": "I Brought You My Bullets, You Brought Me Your Love",
+      "date": null,
+      "country": null,
+      "color": null
+    },
+    {
+      "id": "s10",
+      "title": "Cubicles",
+      "album": "I Brought You My Bullets, You Brought Me Your Love",
+      "date": null,
+      "country": null,
+      "color": null
+    },
+    {
+      "id": "s11",
+      "title": "Demolition Lovers",
+      "album": "I Brought You My Bullets, You Brought Me Your Love",
+      "date": null,
+      "country": null,
+      "color": null
+    },
+    {
+      "id": "s12",
+      "title": "Helena",
+      "album": "Three Cheers for Sweet Revenge",
+      "date": "2025-08-29",
+      "country": "USA",
+      "color": "#d5a6bd"
+    },
+    {
+      "id": "s13",
+      "title": "Give ’Em Hell, Kid",
+      "album": "Three Cheers for Sweet Revenge",
+      "date": "2026-02-01",
+      "country": "Argentina",
+      "color": "#d0e0ca"
+    },
+    {
+      "id": "s14",
+      "title": "To the End",
+      "album": "Three Cheers for Sweet Revenge",
+      "date": "2026-02-01",
+      "country": "Argentina",
+      "color": "#d0e0ca"
+    },
+    {
+      "id": "s15",
+      "title": "You Know What They Do to Guys Like Us in Prison",
+      "album": "Three Cheers for Sweet Revenge",
+      "date": "2025-08-29",
+      "country": "USA",
+      "color": "#d5a6bd"
+    },
+    {
+      "id": "s16",
+      "title": "I’m Not Okay (I Promise)",
+      "album": "Three Cheers for Sweet Revenge",
+      "date": "2025-08-29",
+      "country": "USA",
+      "color": "#d5a6bd"
+    },
+    {
+      "id": "s17",
+      "title": "The Ghost of You",
+      "album": "Three Cheers for Sweet Revenge",
+      "date": "2025-09-13",
+      "country": "USA",
+      "color": "#b4a7d6"
+    },
+    {
+      "id": "s18",
+      "title": "The Jetset Life Is Gonna Kill You",
+      "album": "Three Cheers for Sweet Revenge",
+      "date": null,
+      "country": null,
+      "color": null
+    },
+    {
+      "id": "s19",
+      "title": "Interlude",
+      "album": "Three Cheers for Sweet Revenge",
+      "date": null,
+      "country": null,
+      "color": null
+    },
+    {
+      "id": "s20",
+      "title": "Thank You for the Venom",
+      "album": "Three Cheers for Sweet Revenge",
+      "date": "2025-08-29",
+      "country": "USA",
+      "color": "#d5a6bd"
+    },
+    {
+      "id": "s21",
+      "title": "Hang ’Em High",
+      "album": "Three Cheers for Sweet Revenge",
+      "date": "2026-01-28",
+      "country": "Chile",
+      "color": "#c9daf8"
+    },
+    {
+      "id": "s22",
+      "title": "It’s Not a Fashion Statement, It’s a Deathwish",
+      "album": "Three Cheers for Sweet Revenge",
+      "date": "2025-09-13",
+      "country": "USA",
+      "color": "#b4a7d6"
+    },
+    {
+      "id": "s23",
+      "title": "Cemetery Drive",
+      "album": "Three Cheers for Sweet Revenge",
+      "date": "2025-08-29",
+      "country": "USA",
+      "color": "#d5a6bd"
+    },
+    {
+      "id": "s24",
+      "title": "I Never Told You What I Do for a Living",
+      "album": "Three Cheers for Sweet Revenge",
+      "date": null,
+      "country": null,
+      "color": null
+    },
+    {
+      "id": "s25",
+      "title": "Bury Me in Black",
+      "album": "Three Cheers for Sweet Revenge",
+      "date": "2025-09-13",
+      "country": "USA",
+      "color": "#b4a7d6"
+    },
+    {
+      "id": "s26",
+      "title": "Desert Song",
+      "album": "Three Cheers for Sweet Revenge",
+      "date": "2026-07-08",
+      "country": "UK",
+      "color": "#f9ecc7"
+    },
+    {
+      "id": "s27",
+      "title": "The End.",
+      "album": "The Black Parade",
+      "date": null,
+      "country": null,
+      "color": null
+    },
+    {
+      "id": "s28",
+      "title": "Dead!",
+      "album": "The Black Parade",
+      "date": null,
+      "country": null,
+      "color": null
+    },
+    {
+      "id": "s29",
+      "title": "This Is How I Disappear",
+      "album": "The Black Parade",
+      "date": null,
+      "country": null,
+      "color": null
+    },
+    {
+      "id": "s30",
+      "title": "The Sharpest Lives",
+      "album": "The Black Parade",
+      "date": null,
+      "country": null,
+      "color": null
+    },
+    {
+      "id": "s31",
+      "title": "Welcome to the Black Parade",
+      "album": "The Black Parade",
+      "date": null,
+      "country": null,
+      "color": null
+    },
+    {
+      "id": "s32",
+      "title": "I Don’t Love You",
+      "album": "The Black Parade",
+      "date": null,
+      "country": null,
+      "color": null
+    },
+    {
+      "id": "s33",
+      "title": "House of Wolves",
+      "album": "The Black Parade",
+      "date": null,
+      "country": null,
+      "color": null
+    },
+    {
+      "id": "s34",
+      "title": "Cancer",
+      "album": "The Black Parade",
+      "date": null,
+      "country": null,
+      "color": null
+    },
+    {
+      "id": "s35",
+      "title": "Mama",
+      "album": "The Black Parade",
+      "date": null,
+      "country": null,
+      "color": null
+    },
+    {
+      "id": "s36",
+      "title": "Sleep",
+      "album": "The Black Parade",
+      "date": null,
+      "country": null,
+      "color": null
+    },
+    {
+      "id": "s37",
+      "title": "Teenagers",
+      "album": "The Black Parade",
+      "date": null,
+      "country": null,
+      "color": null
+    },
+    {
+      "id": "s38",
+      "title": "Disenchanted",
+      "album": "The Black Parade",
+      "date": null,
+      "country": null,
+      "color": null
+    },
+    {
+      "id": "s39",
+      "title": "Famous Last Words",
+      "album": "The Black Parade",
+      "date": null,
+      "country": null,
+      "color": null
+    },
+    {
+      "id": "s40",
+      "title": "Blood",
+      "album": "The Black Parade",
+      "date": null,
+      "country": null,
+      "color": null
+    },
+    {
+      "id": "s41",
+      "title": "Heaven Help Us",
+      "album": "The Black Parade",
+      "date": "2026-01-28",
+      "country": "Chile",
+      "color": "#c9daf8"
+    },
+    {
+      "id": "s42",
+      "title": "My Way Home Is Through You",
+      "album": "The Black Parade",
+      "date": "2025-09-13",
+      "country": "USA",
+      "color": "#b4a7d6"
+    },
+    {
+      "id": "s43",
+      "title": "Kill All Your Friends",
+      "album": "The Black Parade",
+      "date": null,
+      "country": null,
+      "color": null
+    },
+    {
+      "id": "s44",
+      "title": "Emily",
+      "album": "The Black Parade",
+      "date": null,
+      "country": null,
+      "color": null
+    },
+    {
+      "id": "s45",
+      "title": "All the angels",
+      "album": "The Black Parade",
+      "date": null,
+      "country": null,
+      "color": null
+    },
+    {
+      "id": "s46",
+      "title": "Fake Your Death",
+      "album": "The Black Parade",
+      "date": null,
+      "country": null,
+      "color": null
+    },
+    {
+      "id": "s47",
+      "title": "Someone Out There Love You",
+      "album": "The Black Parade",
+      "date": null,
+      "country": null,
+      "color": null
+    },
+    {
+      "id": "s48",
+      "title": "Look Alive, Sunshine",
+      "album": "Danger Days",
+      "date": null,
+      "country": null,
+      "color": null
+    },
+    {
+      "id": "s49",
+      "title": "Na Na Na (Na Na Na Na Na Na Na Na Na)",
+      "album": "Danger Days",
+      "date": "2025-08-29",
+      "country": "USA",
+      "color": "#d5a6bd"
+    },
+    {
+      "id": "s50",
+      "title": "Bulletproof Heart",
+      "album": "Danger Days",
+      "date": null,
+      "country": null,
+      "color": null
+    },
+    {
+      "id": "s51",
+      "title": "SING",
+      "album": "Danger Days",
+      "date": "2026-01-28",
+      "country": "Chile",
+      "color": "#c9daf8"
+    },
+    {
+      "id": "s52",
+      "title": "Planetary (GO!)",
+      "album": "Danger Days",
+      "date": "2026-07-08",
+      "country": "UK",
+      "color": "#f9ecc7"
+    },
+    {
+      "id": "s53",
+      "title": "The Only Hope for Me Is You",
+      "album": "Danger Days",
+      "date": null,
+      "country": null,
+      "color": null
+    },
+    {
+      "id": "s54",
+      "title": "Jet-Star and the Kobra Kid / Traffic Report",
+      "album": "Danger Days",
+      "date": null,
+      "country": null,
+      "color": null
+    },
+    {
+      "id": "s55",
+      "title": "Party Poison",
+      "album": "Danger Days",
+      "date": "2026-07-08",
+      "country": "UK",
+      "color": "#f9ecc7"
+    },
+    {
+      "id": "s56",
+      "title": "Save Yourself, I’ll Hold Them Back",
+      "album": "Danger Days",
+      "date": null,
+      "country": null,
+      "color": null
+    },
+    {
+      "id": "s57",
+      "title": "S/C/A/R/E/C/R/O/W",
+      "album": "Danger Days",
+      "date": "2025-08-29",
+      "country": "USA",
+      "color": "#d5a6bd"
+    },
+    {
+      "id": "s58",
+      "title": "Summertime",
+      "album": "Danger Days",
+      "date": null,
+      "country": null,
+      "color": null
+    },
+    {
+      "id": "s59",
+      "title": "DESTROYA",
+      "album": "Danger Days",
+      "date": "2025-09-13",
+      "country": "USA",
+      "color": "#b4a7d6"
+    },
+    {
+      "id": "s60",
+      "title": "The Kids from Yesterday",
+      "album": "Danger Days",
+      "date": "2025-09-13",
+      "country": "USA",
+      "color": "#b4a7d6"
+    },
+    {
+      "id": "s61",
+      "title": "Goodnite, Dr. Death",
+      "album": "Danger Days",
+      "date": null,
+      "country": null,
+      "color": null
+    },
+    {
+      "id": "s62",
+      "title": "Vampire Money",
+      "album": "Danger Days",
+      "date": "2026-07-08",
+      "country": "UK",
+      "color": "#f9ecc7"
+    },
+    {
+      "id": "s63",
+      "title": "Mastas of Ravenkroft",
+      "album": "Danger Days",
+      "date": null,
+      "country": null,
+      "color": null
+    },
+    {
+      "id": "s64",
+      "title": "F.T.W.W.W",
+      "album": "Danger Days",
+      "date": null,
+      "country": null,
+      "color": null
+    },
+    {
+      "id": "s65",
+      "title": "Black Dragon",
+      "album": "Danger Days",
+      "date": null,
+      "country": null,
+      "color": null
+    },
+    {
+      "id": "s66",
+      "title": "Boy Division",
+      "album": "Conventional Weapons",
+      "date": "2025-08-29",
+      "country": "USA",
+      "color": "#d5a6bd"
+    },
+    {
+      "id": "s67",
+      "title": "Tomorrow’s Money",
+      "album": "Conventional Weapons",
+      "date": null,
+      "country": null,
+      "color": null
+    },
+    {
+      "id": "s68",
+      "title": "AMBULANCE",
+      "album": "Conventional Weapons",
+      "date": null,
+      "country": null,
+      "color": null
+    },
+    {
+      "id": "s69",
+      "title": "Gun.",
+      "album": "Conventional Weapons",
+      "date": null,
+      "country": null,
+      "color": null
+    },
+    {
+      "id": "s70",
+      "title": "The World Is Ugly",
+      "album": "Conventional Weapons",
+      "date": "2025-08-29",
+      "country": "USA",
+      "color": "#d5a6bd"
+    },
+    {
+      "id": "s71",
+      "title": "The Light Behind Your Eyes",
+      "album": "Conventional Weapons",
+      "date": null,
+      "country": null,
+      "color": null
+    },
+    {
+      "id": "s72",
+      "title": "Kiss the Ring",
+      "album": "Conventional Weapons",
+      "date": null,
+      "country": null,
+      "color": null
+    },
+    {
+      "id": "s73",
+      "title": "Make Room!!!!",
+      "album": "Conventional Weapons",
+      "date": null,
+      "country": null,
+      "color": null
+    },
+    {
+      "id": "s74",
+      "title": "Surrender the Night",
+      "album": "Conventional Weapons",
+      "date": null,
+      "country": null,
+      "color": null
+    },
+    {
+      "id": "s75",
+      "title": "Burn Bright",
+      "album": "Conventional Weapons",
+      "date": null,
+      "country": null,
+      "color": null
+    },
+    {
+      "id": "s76",
+      "title": "The Foundations of Decay",
+      "album": "Singles & Covers",
+      "date": null,
+      "country": null,
+      "color": null
+    },
+    {
+      "id": "s77",
+      "title": "Desolation Row (cover de Bob Dylan)",
+      "album": "Singles & Covers",
+      "date": null,
+      "country": null,
+      "color": null
+    },
+    {
+      "id": "s78",
+      "title": "All I Want for Christmas Is You (cover)",
+      "album": "Singles & Covers",
+      "date": null,
+      "country": null,
+      "color": null
+    },
+    {
+      "id": "s79",
+      "title": "Astro Zombies (cover de Misfits)",
+      "album": "Singles & Covers",
+      "date": null,
+      "country": null,
+      "color": null
+    },
+    {
+      "id": "s80",
+      "title": "Under Pressure (con The Used)",
+      "album": "Singles & Covers",
+      "date": null,
+      "country": null,
+      "color": null
+    },
+    {
+      "id": "s81",
+      "title": "Bullet with Butterfly Wings (The Smashing Pumpkins)",
+      "album": "Singles & Covers",
+      "date": "2025-08-29",
+      "country": "USA",
+      "color": "#d5a6bd"
+    },
+    {
+      "id": "s82",
+      "title": "Song 2 (cover de Blur)",
+      "album": "Singles & Covers",
+      "date": null,
+      "country": null,
+      "color": null
+    },
+    {
+      "id": "s83",
+      "title": "Common People (cover de Pulp)",
+      "album": "Singles & Covers",
+      "date": null,
+      "country": null,
+      "color": null
+    },
+    {
+      "id": "s84",
+      "title": "Jack the Ripper (cover de Morrissey)",
+      "album": "Singles & Covers",
+      "date": "2026-07-08",
+      "country": "UK",
+      "color": "#f9ecc7"
+    },
+    {
+      "id": "s85",
+      "title": "Fortunate Son (cover de Creedence Clearwater Revival, en jams/teases)",
+      "album": "Singles & Covers",
+      "date": null,
+      "country": null,
+      "color": null
+    },
+    {
+      "id": "s86",
+      "title": "My Name Is Jonas (cover de Weezer, tease)",
+      "album": "Singles & Covers",
+      "date": null,
+      "country": null,
+      "color": null
+    },
+    {
+      "id": "s87",
+      "title": "Every Snowflake Is Different",
+      "album": "Singles & Covers",
+      "date": null,
+      "country": null,
+      "color": null
+    },
+    {
+      "id": "s88",
+      "title": "Sister to Sleep",
+      "album": "Singles & Covers",
+      "date": null,
+      "country": null,
+      "color": null
+    }
+  ]
+}

@@ -1,0 +1,111 @@
+:root {
+  --ink: #111;
+  --paper: #f2f0ed;
+  --muted: #77716d;
+  --red: #bd1828;
+  --line: #bcb8b3;
+  --gold: #8b817a;
+  --sans: "DM Sans", Arial, sans-serif;
+  --display: "Barlow Condensed", Impact, sans-serif;
+  color-scheme: light;
+}
+
+body { background: #f2f0ed; color: #111; font-family: var(--sans); }
+body:before {
+  opacity: .2;
+  background: linear-gradient(115deg,transparent 58%,rgba(133,10,24,.08)),
+              repeating-linear-gradient(0deg,transparent 0 39px,rgba(30,25,25,.025) 40px);
+}
+.topbar { border-bottom: 1px solid #171515; }
+.brand { color: #111; letter-spacing: .13em; }
+.brand-mark { border-color: #111; background: #111; color: #f2f0ed; box-shadow: 4px 4px 0 #bd1828; }
+.account-note,.tiny-label,.hero-rule,.eyebrow,footer { color: #77737a; }
+.button { color: #fff; }
+.button-red { background: #bd1828; border-color: #111; box-shadow: 3px 3px 0 #111; }
+.button-red:hover { background: #97101d; box-shadow: 4px 4px 0 #111; }
+.button-google { background: #fbfaf9; border-color: #fff; color: #302d32; box-shadow: 3px 3px 0 #c8c2c3; }
+.button-quiet { border-color: #c9c3c5; background: #e9e6e4; color: #625d63; }
+.hero { border-bottom: 1px solid #111; }
+.hero h1 { color: #111; font-size: clamp(4rem, 10vw, 9rem); line-height: .78; letter-spacing: -.045em; text-transform: uppercase; }
+.hero h1 em { color: #bd1828; text-shadow: none; font-style: normal; }
+.hero-subtitle { color: #77727a; }
+.hero-stamp { border-color: #111; color: #111; box-shadow: 5px 5px 0 #bd1828; background: #e8e4df; }
+.hero-stamp:before,.hero-stamp:after { border-color: #d3b3b7; }
+.hero-stamp strong { color: #bd1828; }
+.live-dot { background: #c3293c; box-shadow: 2px 2px 0 #e8b8bd; }
+.panel { background: #f7f5f2; border: 1px solid #171515; box-shadow: 5px 5px 0 #d1ccc6; }
+.welcome h2 { color: #39343a; }
+.welcome p { color: #77737a; }
+.welcome .setup-hint { color: #a52a3a; }
+.welcome-icon { border-color: #d4b3b7; background: #fff6f6; }
+.demo-button { color: #8e3540; }
+.demo-button:hover { color: #bd2436; }
+.archive-heading h2,.section-heading h3,.detail-list-head h4 { color: #343036; }
+.archive-stats b { color: #403b41; }
+.archive-stats span { color: #77737a; }
+.section-note { color: #77737a; }
+.step { border-color: #111; background: #bd1828; color: white; }
+.show-card { border-color: #aaa49e; background: #f5f2ee; box-shadow: 3px 3px 0 #d1ccc6; }
+.show-card-main { color: #302d32; }
+.show-card-main small { color: #77737a; }
+.show-card-main small i { color: #bd2436; }
+.show-date { color: #a31221; }
+.attendance-stamp { text-shadow: none; background: #fffaf9; }
+.attendance-stamp:hover,.attendance-stamp.is-attending { background: #bd1828; color: #fff; border-color: #111; box-shadow: 3px 3px 0 #111; text-shadow: none; }
+.add-show-toggle { border-color: #c9bfc1; background: #f5f2f0; color: #625c63; }
+.add-show-toggle:hover { border-color: #bd2436; color: #9c1e2d; }
+.setlist-source,.new-show-form { background: #efedeb; border-color: #cec8ca; }
+.setlist-source label,.new-show-form label { color: #765b61; }
+.setlist-source input,.setlist-source select,.new-show-form input,.import-setlist textarea,.memory-search {
+  background: #fff;
+  border-color: #cec8ca;
+  color: #302d32;
+}
+.setlist-source select:focus,.setlist-source input:focus,.new-show-form input:focus,.import-setlist textarea:focus,.memory-search:focus-within { outline-color: #bd2436; }
+.show-detail { border-color: #c9c4c5; }
+.detail-empty p { color: #514950; }
+.detail-top { background: linear-gradient(130deg,#f4e8e8,#fbfaf9 83%); border-bottom-color: #ddd7d8; }
+.detail-place { color: #77737a; }
+.detail-seal { background: rgba(255,255,255,.6); }
+.detail-seal.active { background: linear-gradient(145deg,#a8192a,#d53a4a); color: #fff; border-color: #fff; }
+.color-note { color: #77737a; }
+.night-setlist li { border-top-color: #e3dfe0; }
+.track-number { color: #a77b80; }
+.track-name { color: #39343a; }
+.track-mark { text-shadow: none; }
+.night-setlist .no-setlist { color: #77737a; }
+.import-setlist { border-top-color: #d5cfd1; }
+.import-setlist summary { color: #a32737; }
+.import-setlist p,.import-actions span { color: #77737a; }
+.source-link { color: #77737a; }
+.source-link a { color: #a92132; }
+.memory-board { background: #f9f8f6; }
+.memory-search { background: #fff; }
+.memory-search span { color: #a16d74; }
+.memory-search input { color: #302d32; }
+.memory-album h4 { color: #a22a39; border-bottom-color: #d9cacc; }
+.memory-song { color: #433e44; border-bottom-color: #e3dfe0; }
+.memory-empty { border-color: #d0c6c8; color: #77737a; }
+.toast { background: #fff; border-color: #bd2436; color: #302d32; box-shadow: 4px 4px 0 #d5d1d0; }
+footer { border-top-color: #d2ccce; }
+footer b { color: #bd2436; }
+
+/* Editorial tour page styling inspired by MCR's stark monochrome and red identity. */
+.account-note,.eyebrow,.tiny-label,.hero-rule,.section-heading h3,.detail-list-head h4,
+.archive-heading h2,.wrapped-label,.wrapped-kicker { letter-spacing: .14em; }
+.archive-heading h2,.section-heading h3,.detail-list-head h4,.detail-top h3,
+.show-card-main strong,.welcome h2 { font-family: var(--display); text-transform: uppercase; letter-spacing: .015em; }
+.archive-heading h2 { font-size: clamp(2.4rem, 5vw, 4.7rem); line-height: .9; }
+.section-heading h3,.detail-list-head h4 { font-size: 1.8rem; }
+.detail-top { background: linear-gradient(135deg,#e6e1dc,#f7f5f2 75%); }
+.detail-top h3 { font-size: 2.4rem; }
+.show-card:before { background: #bd1828; }
+.wrapped-board { border-color: #111; }
+.memory-board { background: #f7f5f2; }
+.topbar,.archive-heading,.hero-rule,footer { border-color: #171515; }
+.archive-heading .wrapped-shortcut { color: #a11f30; }
+.archive-heading .wrapped-shortcut:hover { color: #d43648; }
+
+@media (max-width: 560px) {
+  .hero-stamp { box-shadow: 3px 3px 0 #d5cbcc; }
+}
