@@ -18,6 +18,7 @@ function dateLabel(date) {
   return new Intl.DateTimeFormat('es-AR', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }).format(new Date(`${date}T12:00:00Z`)).toLocaleUpperCase('es-AR');
 }
 
+function archiveStorageKey() { return currentUniverse === 'bts' ? 'bts-show-archive-demo' : 'mcr-show-archive-demo'; }
 function showId(show) { return show.id || `show-${show.date}`; }
 function isTargetTourShow(show) {
   const tour = String(show.tour || '').toLowerCase();
@@ -181,7 +182,7 @@ async function loadTourOptions() {
     select.value = activeTourName;
     select.disabled = false;
     $('import-tour-button').disabled = false;
-    $('tour-import-status').textContent = options.length + ' giras Black Parade de 2025/2026 disponibles. Elegí una para cargar sus fechas.';
+    $('tour-import-status').textContent = currentUniverse === 'bts' ? options.length + ' giras ARIRANG con setlist disponible. Elegí una para cargar sus fechas pasadas.' : options.length + ' giras Black Parade de 2025/2026 disponibles. Elegí una para cargar sus fechas.';
   } catch (error) {
     console.error(error);
     select.innerHTML = '<option value="">No se pudieron cargar las giras</option>';
@@ -251,7 +252,7 @@ function renderAll() { renderShows(); renderDetail(); updateStats(); renderMemor
 
 async function saveArchive() {
   if (demoMode) {
-    localStorage.setItem(`${currentUniverse}-show-archive-demo`, JSON.stringify({ shows, attended, setlists, activeTourName }));
+    localStorage.setItem(archiveStorageKey(), JSON.stringify({ shows, attended, setlists, activeTourName }));
     return;
   }
   if (!user || !db) throw new Error('Sign in to save this archive.');
@@ -331,7 +332,7 @@ async function main() {
   $('wrapped-content').addEventListener('click', async (event) => {
     if (!event.target.closest('[data-share-wrapped]')) return;
     const { nights, songs, cityCount, topSong } = getWrappedData();
-    const summary = `Mi LLTBP Wrapped desde 2021: ${nights.length} shows, ${songs.length} canciones distintas y ${cityCount} ciudades.${topSong ? ` Mi canción más vivida: ${topSong.title}.` : ''}`;
+    const summary = `${currentUniverse === 'bts' ? 'Mi BTS ARIRANG Wrapped' : 'Mi LLTBP Wrapped desde 2021'}: ${nights.length} shows, ${songs.length} canciones distintas y ${cityCount} ciudades.${topSong ? ` Mi canción más vivida: ${topSong.title}.` : ''}`;
     try {
       await navigator.clipboard.writeText(summary);
       toast('Resumen copiado. Listo para compartir.');
