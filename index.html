@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#efedeb" />
-    <meta name="description" content="Tu archivo de noches con My Chemical Romance." />
-    <title>Our Lives in Black & Red — MCR show archive</title>
+    <meta name="theme-color" content="#f8f5ef" />
+    <meta name="description" content="Tu archivo cozy de conciertos y recuerdos musicales." />
+    <title>Your Music Quest — Concert archive</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -15,8 +15,22 @@
     <link rel="stylesheet" href="wrapped.css" />
     <link rel="stylesheet" href="pixel-emo.css" />
     <link rel="stylesheet" href="sakura-light.css" />
+    <link rel="stylesheet" href="universe.css" />
   </head>
   <body>
+    <div class="universe-gate" id="universe-gate">
+      <div class="gate-inner">
+        <p class="gate-kicker">A LITTLE QUEST THROUGH YOUR MUSIC HISTORY</p>
+        <h1 class="gate-title">Your Music Quest ✦</h1>
+        <p class="gate-subtitle">Dos universos, tus conciertos, tus canciones y los recuerdos que se quedan con vos.</p>
+        <div class="gate-cards">
+          <button class="gate-card mcr" id="choose-mcr" type="button"><span class="gate-pixel">♥ ✦ ♥</span><h2>Our Lives in Black & Red</h2><p>Tu archivo de My Chemical Romance. Cada noche que sobrevivimos, cada canción que quedó.</p><span class="gate-enter">ENTRAR A MCR ↗</span></button>
+          <button class="gate-card bts" id="choose-bts" type="button"><span class="gate-pixel">☁ 🌊 ✧</span><h2>KEEP SWIMMING</h2><p>Tu quest de BTS ARIRANG: conciertos vividos, canciones en vivo y tu propio Wrapped.</p><span class="gate-enter">ENTRAR A BTS ↗</span></button>
+        </div>
+        <p class="gate-foot">COZY PIXEL MEMORIES · YOUR HISTORY, YOUR WAY</p>
+      </div>
+    </div>
+
     <div class="grain" aria-hidden="true"></div>
     <header class="topbar">
       <a class="brand" href="#" aria-label="Our Lives in Black and Red"><span class="brand-mark">MCR</span><span>OUR LIVES<br />IN BLACK & RED</span></a>
@@ -44,5 +58,6 @@
     <footer><span>OUR LIVES IN BLACK & RED</span><span>MADE OF MEMORIES <b>✳</b></span></footer>
     <div id="toast" class="toast" role="status"></div>
     <script type="module" src="app.js"></script>
+    <script src="universe.js"></script>
   </body>
 </html>
