@@ -7,6 +7,8 @@ import { getFunctions, httpsCallable, connectFunctionsEmulator } from 'https://w
 const $ = (id) => document.getElementById(id);
 const escapeHTML = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const TARGET_TOUR_YEARS = new Set(['2025', '2026']);
+let currentUniverse = 'mcr';
+let listBtsToursAPI = null;
 const WRAPPED_BSTAGE_EXCLUDED_SONGS = new Set(['from a to b', 'it s over']);
 const configured = firebaseConfig.apiKey && !firebaseConfig.apiKey.startsWith('REPLACE_') && firebaseConfig.projectId && !firebaseConfig.projectId.startsWith('REPLACE_');
 let auth, db, listMcrToursAPI, user = null, demoMode = false, catalogData = { albums: [], dates: [], songs: [] }, availableShows = [], shows = [], attended = [], setlists = {}, selectedId = null, activeTourName = '', toastTimer;
@@ -18,9 +20,8 @@ function dateLabel(date) {
 
 function showId(show) { return show.id || `show-${show.date}`; }
 function isTargetTourShow(show) {
-  if (!show.tour) return true;
-  return TARGET_TOUR_YEARS.has(String(show.date || '').slice(0, 4))
-    && String(show.tour).toLowerCase().includes('black parade');
+  const tour = String(show.tour || '').toLowerCase();
+  return currentUniverse === 'bts' ? tour.includes('arirang') : (!show.tour || (TARGET_TOUR_YEARS.has(String(show.date || '').slice(0, 4)) && tour.includes('black parade')));
 }
 function songsFor(show) { return setlists[showId(show)] || catalogData.songs.filter((song) => song.date === show.date).map((song) => ({ title: song.title, songId: song.id, album: song.album })); }
 
@@ -162,14 +163,15 @@ async function loadTourOptions() {
   const select = $('tour-select');
   $('import-tour-button').disabled = true;
   select.disabled = true;
-  select.innerHTML = '<option value="">Cargando giras de MCR…</option>';
-  $('tour-import-status').textContent = 'Buscando Black Parade 2025 y 2026…';
-  if (!listMcrToursAPI) {
+  select.innerHTML = `<option value="">Cargando giras de ${currentUniverse === 'bts' ? 'BTS' : 'MCR'}…</option>`;
+  $('tour-import-status').textContent = currentUniverse === 'bts' ? 'Buscando fechas pasadas de ARIRANG con setlist publicado…' : 'Buscando Black Parade 2025 y 2026…';
+  const tourApi = currentUniverse === 'bts' ? listBtsToursAPI : listMcrToursAPI;
+  if (!tourApi) {
     document.getElementById("tour-import-status").textContent = "La importacion automatica requiere Firebase Functions. Podes cargar fechas y setlists a mano.";
     return;
   }
   try {
-    const result = await listMcrToursAPI();
+    const result = await tourApi();
     const options = result.data.tours || [];
     availableShows = result.data.shows || [];
     select.innerHTML = '';
@@ -202,7 +204,8 @@ async function loadTourOptions() {
 async function importSelectedTour() {
   const tourName = $('tour-select').value;
   if (!tourName) { toast('Elegí una gira primero.'); return; }
-  if (!listMcrToursAPI) { toast('La importación automática requiere Firebase Functions.'); return; }
+  const tourApi = currentUniverse === 'bts' ? listBtsToursAPI : listMcrToursAPI;
+  if (!tourApi) { toast('La importación automática requiere Firebase Functions.'); return; }
   const button = $('import-tour-button');
   button.disabled = true;
   button.textContent = 'LOADING SHOWS...';
@@ -248,11 +251,11 @@ function renderAll() { renderShows(); renderDetail(); updateStats(); renderMemor
 
 async function saveArchive() {
   if (demoMode) {
-    localStorage.setItem('mcr-show-archive-demo', JSON.stringify({ shows, attended, setlists, activeTourName }));
+    localStorage.setItem(`${currentUniverse}-show-archive-demo`, JSON.stringify({ shows, attended, setlists, activeTourName }));
     return;
   }
   if (!user || !db) throw new Error('Sign in to save this archive.');
-  await setDoc(doc(db, 'users', user.uid), { shows, attended, setlists, activeTourName, updatedAt: new Date().toISOString() });
+  await setDoc(doc(db, 'users', `${user.uid}_${currentUniverse}`), { shows, attended, setlists, activeTourName, updatedAt: new Date().toISOString() });
 }
 function showError(error) {
   console.error(error);
@@ -282,7 +285,7 @@ function startDemo() {
   attended = [];
   setlists = {};
   activeTourName = '';
-  const saved = localStorage.getItem('mcr-show-archive-demo');
+  const saved = localStorage.getItem(`${currentUniverse}-show-archive-demo`);
   if (saved) {
     try {
       const data = JSON.parse(saved);
@@ -290,7 +293,7 @@ function startDemo() {
       attended = Array.isArray(data.attended) ? data.attended : [];
       setlists = data.setlists && typeof data.setlists === 'object' ? data.setlists : {};
       activeTourName = typeof data.activeTourName === 'string' ? data.activeTourName : '';
-    } catch { localStorage.removeItem('mcr-show-archive-demo'); }
+    } catch { localStorage.removeItem(`${currentUniverse}-show-archive-demo`); }
   }
   $('welcome').hidden = true;
   $('app').hidden = false;
@@ -345,6 +348,7 @@ async function main() {
   }
   // setlist.fm needs about a minute to return the full MCR archive on a cold cache.
   listMcrToursAPI = httpsCallable(functions, 'listMcrTours', { timeout: 170000 });
+  listBtsToursAPI = httpsCallable(functions, 'listBtsTours', { timeout: 170000 });
   onAuthStateChanged(auth, async (nextUser) => {
     user = nextUser;
     demoMode = false;
@@ -371,5 +375,47 @@ async function main() {
     } catch (error) { showError(error); }
   });
 }
+
+
+window.addEventListener('music-universe-change', async (event) => {
+  const next = event.detail?.universe;
+  if (!['mcr', 'bts'].includes(next)) return;
+  currentUniverse = next;
+  document.body.dataset.universe = next;
+  const bts = next === 'bts';
+  document.title = bts ? 'KEEP SWIMMING — BTS Concert Quest' : 'Our Lives in Black & Red — MCR Concert Archive';
+  document.querySelector('.brand').innerHTML = bts ? '<span class="brand-mark">BTS</span><span>KEEP<br>SWIMMING</span>' : '<span class="brand-mark">MCR</span><span>OUR LIVES<br>IN BLACK & RED</span>';
+  document.querySelector('.archive-heading .eyebrow').innerHTML = bts ? 'YOUR BTS ARIRANG ARCHIVE' : 'YOUR MCR SHOW ARCHIVE <span class="slash">/</span> <span id="greeting">BIENVENIDA</span>';
+  document.querySelector('.archive-heading h2').textContent = bts ? 'LAS NOCHES DE ARIRANG.' : 'LAS NOCHES QUE VIVISTE.';
+  document.querySelector('.show-library .section-note').textContent = bts ? 'Fechas pasadas de ARIRANG con setlist publicado. Marcá solo los conciertos a los que fuiste.' : 'Elegí una gira Black Parade de 2025 o 2026 y marcá los shows a los que fuiste.';
+  document.querySelector('.setlist-source label').textContent = bts ? 'ELEGIR GIRA DE BTS' : 'ELEGIR GIRA DE MY CHEMICAL ROMANCE';
+  document.querySelector('.setlist-source small').textContent = bts ? 'Solo aparecen fechas pasadas con setlist publicado en setlist.fm.' : 'Buscando solo giras Black Parade de 2025 y 2026 en setlist.fm.';
+  document.querySelector('.memory-board h3').textContent = bts ? 'LAS CANCIONES QUE ESCUCHASTE EN VIVO' : 'LAS CANCIONES QUE VIVISTE';
+  const hero = document.querySelector('.hero-copy');
+  if (hero) hero.innerHTML = bts ? '<p class="eyebrow">✦ YOUR ARIRANG QUEST</p><h1>KEEP<br><em>SWIMMING.</em></h1><p class="hero-subtitle">Cada concierto, cada canción y cada recuerdo que se queda con vos.</p>' : '<p class="eyebrow"><span class="live-dot"></span> THE NIGHTS THAT NEVER LEFT</p><h1>WHERE THE<br><em>NIGHT HAPPENED.</em></h1><p class="hero-subtitle">Cada show, cada canción, cada recuerdo que quedó en vos.</p>';
+  const stamp = document.querySelector('.hero-stamp');
+  if (stamp) stamp.innerHTML = bts ? '<span>BTS<br>ARIRANG</span><strong>SWIM</strong><span>KEEP<br>SWIMMING</span>' : '<span>THREE CHEERS<br>FOR ALL THE</span><strong>NIGHTS</strong><span>WE SURVIVED</span>';
+  if (demoMode) { startDemo(); return; }
+  if (user && db) {
+    shows = []; attended = []; setlists = {}; activeTourName = ''; selectedId = null;
+    try {
+      const snapshot = await getDoc(doc(db, 'users', `${user.uid}_${currentUniverse}`));
+      if (snapshot.exists()) {
+        const data = snapshot.data();
+        shows = Array.isArray(data.shows) ? data.shows : [];
+        attended = Array.isArray(data.attended) ? data.attended : [];
+        setlists = data.setlists && typeof data.setlists === 'object' ? data.setlists : {};
+        activeTourName = typeof data.activeTourName === 'string' ? data.activeTourName : '';
+      }
+    } catch (error) { showError(error); }
+    await loadTourOptions();
+    const first = shows.find(show => isTargetTourShow(show) && (!activeTourName || show.tour === activeTourName));
+    selectedId = first ? showId(first) : null;
+    renderAll();
+  } else {
+    shows = []; attended = []; setlists = {}; activeTourName = ''; selectedId = null;
+    $('welcome').hidden = false; $('app').hidden = true;
+  }
+});
 
 main().catch((error) => { console.error(error); toast('No se pudo cargar el archivo de shows.'); });
