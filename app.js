@@ -256,7 +256,7 @@ async function saveArchive() {
     return;
   }
   if (!user || !db) throw new Error('Sign in to save this archive.');
-  await setDoc(doc(db, 'users', `${user.uid}_${currentUniverse}`), { shows, attended, setlists, activeTourName, updatedAt: new Date().toISOString() });
+  await setDoc(doc(db, 'users', user.uid, 'archives', currentUniverse), { shows, attended, setlists, activeTourName, updatedAt: new Date().toISOString() });
 }
 function showError(error) {
   console.error(error);
@@ -400,7 +400,7 @@ window.addEventListener('music-universe-change', async (event) => {
   if (user && db) {
     shows = []; attended = []; setlists = {}; activeTourName = ''; selectedId = null;
     try {
-      const snapshot = await getDoc(doc(db, 'users', `${user.uid}_${currentUniverse}`));
+      const snapshot = await getDoc(doc(db, 'users', user.uid, 'archives', currentUniverse));
       if (snapshot.exists()) {
         const data = snapshot.data();
         shows = Array.isArray(data.shows) ? data.shows : [];
