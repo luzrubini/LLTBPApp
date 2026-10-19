@@ -375,7 +375,11 @@ async function main() {
     shows = []; attended = []; setlists = {}; activeTourName = ''; selectedId = null;
     $('greeting').textContent = (user.displayName || 'BIENVENIDA').split(' ')[0].toLocaleUpperCase('es');
     try {
-      const snapshot = await getDoc(doc(db, 'users', user.uid, 'archives', currentUniverse));
+      let snapshot = await getDoc(doc(db, 'users', user.uid, 'archives', currentUniverse));
+      // Migrate the previous MCR archive location on read, without mixing BTS data.
+      if (!snapshot.exists() && currentUniverse === 'mcr') {
+        snapshot = await getDoc(doc(db, 'users', user.uid));
+      }
       if (snapshot.exists()) {
         const data = snapshot.data();
         shows = Array.isArray(data.shows) ? data.shows : [];
