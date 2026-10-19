@@ -33,3 +33,16 @@ La página queda publicada en `https://tu-usuario.github.io/nombre-del-repo/`. N
 El importador busca coincidencias con el catálogo para incluir canciones en las estadísticas. Las líneas que no coincidan también se guardan y se ven en el setlist.
 
 La importación usa los endpoints paginados de setlist.fm. Las fechas futuras o pasadas que todavía no tengan setlist publicado no aparecen en esa API. La clave `x-api-key` queda en un secreto de Firebase Functions y no en el JavaScript público de GitHub Pages.
+
+
+## Importación de MCR y BTS (rama de la propuesta)
+
+La interfaz compartida selecciona una gira automáticamente y carga sus fechas para evitar que el archivo quede vacío al entrar. Para que aparezcan shows reales, la función de Firebase debe estar desplegada y el secreto `SETLISTFM_API_KEY` debe existir.
+
+- MCR: la función `listMcrTours` busca Black Parade 2025–2026.
+- BTS: la función nueva `listBtsTours` busca setlists publicados de ARIRANG en 2026 y descarta fechas futuras.
+- Después de revisar la propuesta, desplegá con `firebase deploy --only functions` desde la carpeta del proyecto Firebase.
+- Las reglas nuevas de Firestore guardan los universos en `users/{uid}/archives/mcr` y `users/{uid}/archives/bts`. Publicá `firestore.rules` para permitir esa estructura.
+- Si una función no está desplegada, el estado debajo del selector de gira indica el error. La importación automática requiere conexión y Firebase Functions; no se inventan fechas ni setlists.
+
+La estética se comparte entre ambos universos: tarjetas suaves, fondos crema y pastel, bordes redondeados y paneles tipo diario. El contenido y los datos siguen separados.
