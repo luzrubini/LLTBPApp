@@ -176,13 +176,27 @@ async function loadTourOptions() {
     const options = result.data.tours || [];
     availableShows = result.data.shows || [];
     select.innerHTML = '';
-    select.add(new Option('Todos los shows del archivo', ''));
+    if (!options.length) {
+      select.add(new Option(currentUniverse === 'bts' ? 'No hay setlists ARIRANG disponibles' : 'No hay giras Black Parade disponibles', ''));
+      select.disabled = true;
+      $('import-tour-button').disabled = true;
+      $('tour-import-status').textContent = currentUniverse === 'bts'
+        ? 'No encontramos fechas pasadas de ARIRANG con setlist publicado. Revisá que la función listBtsTours esté desplegada en Firebase.'
+        : 'No encontramos fechas Black Parade de 2025–2026. Revisá Firebase Functions y la clave de setlist.fm.';
+      renderShows();
+      return;
+    }
     options.forEach((tour) => select.add(new Option(tour.name + ' · ' + tour.count + ' shows', tour.name)));
-    if (activeTourName && !options.some((tour) => tour.name === activeTourName)) activeTourName = '';
+    if (!activeTourName || !options.some((tour) => tour.name === activeTourName)) activeTourName = options[0].name;
     select.value = activeTourName;
     select.disabled = false;
     $('import-tour-button').disabled = false;
-    $('tour-import-status').textContent = currentUniverse === 'bts' ? options.length + ' giras ARIRANG con setlist disponible. Elegí una para cargar sus fechas pasadas.' : options.length + ' giras Black Parade de 2025/2026 disponibles. Elegí una para cargar sus fechas.';
+    $('tour-import-status').textContent = currentUniverse === 'bts'
+      ? options.length + ' giras ARIRANG disponibles. Cargando fechas pasadas…'
+      : options.length + ' giras Black Parade de 2025/2026 disponibles. Cargando fechas…';
+    const hasSelectedTour = shows.some((show) => show.tour === activeTourName && isTargetTourShow(show));
+    if (!hasSelectedTour) await importSelectedTour();
+    else renderAll();
   } catch (error) {
     console.error(error);
     select.innerHTML = '<option value="">No se pudieron cargar las giras</option>';
