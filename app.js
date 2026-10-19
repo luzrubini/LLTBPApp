@@ -2,7 +2,7 @@ import { firebaseConfig } from './firebase-config.js';
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js';
 import { getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithPopup, signOut } from 'https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js';
 import { getFirestore, doc, getDoc, setDoc } from 'https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js';
-import { getFunctions, httpsCallable, connectFunctionsEmulator } from 'https://www.gstatic.com/firebasejs/10.12.5/firebase-functions.js';
+import { getFunctions, httpsCallable } from 'https://www.gstatic.com/firebasejs/10.12.5/firebase-functions.js';
 
 const $ = (id) => document.getElementById(id);
 const escapeHTML = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -358,9 +358,7 @@ async function main() {
   const app = initializeApp(firebaseConfig);
   auth = getAuth(app); db = getFirestore(app);
   const functions = getFunctions(app);
-  if (location.hostname === '127.0.0.1' || location.hostname === 'localhost') {
-    connectFunctionsEmulator(functions, '127.0.0.1', 5001);
-  }
+  // Use deployed Firebase Functions even when the static app is served from localhost.
   // setlist.fm needs about a minute to return the full MCR archive on a cold cache.
   listMcrToursAPI = httpsCallable(functions, 'listMcrTours', { timeout: 170000 });
   listBtsToursAPI = httpsCallable(functions, 'listBtsTours', { timeout: 170000 });
